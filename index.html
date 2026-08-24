@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>/orb — The Informational Dimensions Navigator</title>
+<style>
+  :root{
+    --bg:#0b0e14; --panel:#141926; --panel2:#1a2133; --ink:#e8ecf4; --muted:#8b95ab;
+    --glow:#6ea8ff; --glow2:#9d7bff; --line:#263049; --accent:#59d6a9;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font:16px/1.65 "Segoe UI",-apple-system,sans-serif;background:var(--bg);color:var(--ink)}
+  .langbar{position:fixed;top:14px;right:16px;z-index:10;display:flex;gap:6px}
+  .langbar button{cursor:pointer;font:600 13px "Segoe UI",sans-serif;padding:6px 14px;border-radius:999px;
+    border:1px solid var(--line);background:var(--panel);color:var(--muted)}
+  .langbar button.on{background:linear-gradient(135deg,var(--glow),var(--glow2));color:#0b0e14;border-color:transparent}
+  .hero{position:relative;text-align:center;padding:84px 24px 60px;overflow:hidden}
+  .orbball{width:190px;height:190px;margin:0 auto 28px;border-radius:50%;position:relative;
+    background:radial-gradient(circle at 34% 30%, #3a5f9e 0%, #16233f 55%, #0b0e14 100%);
+    box-shadow:0 0 60px 8px rgba(110,168,255,.25), inset 0 0 40px rgba(157,123,255,.25);
+    animation:spin 26s linear infinite}
+  .orbball::before{content:"";position:absolute;inset:14px;border-radius:50%;
+    border:1px solid rgba(110,168,255,.35);transform:rotateX(66deg)}
+  .orbball::after{content:"";position:absolute;inset:34px;border-radius:50%;
+    border:1px dashed rgba(157,123,255,.3)}
+  @keyframes spin{from{filter:hue-rotate(0)}to{filter:hue-rotate(28deg)}}
+  h1{font-size:44px;margin:0 0 6px;letter-spacing:.02em}
+  h1 .slash{color:var(--glow)}
+  .tag{color:var(--muted);max-width:640px;margin:0 auto 30px;font-size:18px}
+  .btn{display:inline-block;background:linear-gradient(135deg,var(--glow),var(--glow2));color:#0b0e14;
+    font-weight:700;padding:14px 30px;border-radius:12px;text-decoration:none;font-size:17px;
+    box-shadow:0 6px 24px rgba(110,168,255,.35)}
+  .btn:hover{filter:brightness(1.1)}
+  .btn.ghost{background:none;color:var(--glow);border:1px solid var(--glow);box-shadow:none;margin-left:12px}
+  main{max-width:880px;margin:0 auto;padding:20px 24px 80px}
+  section{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:26px 30px;margin:22px 0}
+  h2{margin:0 0 12px;font-size:22px;color:var(--glow)}
+  h3{margin:18px 0 6px;font-size:16px;color:var(--accent)}
+  p{margin:8px 0;color:var(--ink)}
+  .dim{color:var(--muted)}
+  .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:14px}
+  .card{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+  .card b{color:var(--ink);font-size:17px}
+  .card p{font-size:14px;color:var(--muted)}
+  code{background:#0e1320;border:1px solid var(--line);border-radius:6px;padding:2px 7px;font-size:14px;color:#a8d8ff}
+  ol li{margin:10px 0}
+  .files td{padding:6px 12px 6px 0;font-size:15px}
+  .files .dim{font-size:13px}
+  a{color:var(--glow)}
+  footer{text-align:center;color:var(--muted);font-size:13px;padding:26px}
+  .dirpad{display:grid;grid-template-columns:repeat(3,64px);gap:6px;justify-content:center;margin:16px auto}
+  .dirpad span{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px 0;
+    text-align:center;font-size:13px;color:var(--muted)}
+  .dirpad .mid{background:none;border:none}
+  .lang-es{display:none}
+  body.es .lang-es{display:revert}
+  body.es .lang-en{display:none}
+</style>
+</head>
+<body>
+
+<div class="langbar">
+  <button id="btnEN" class="on" onclick="setLang('en')">English</button>
+  <button id="btnES" onclick="setLang('es')">Español</button>
+</div>
+
+<div class="hero">
+  <div class="orbball"></div>
+  <h1><span class="slash">/</span>orb</h1>
+  <p class="tag lang-en">The Informational Dimensions navigator — browse Claude's knowledge, or drive a piece of work,
+  by clicking <b>directions</b> instead of conversing. A globe of a subject you fly around.</p>
+  <p class="tag lang-es">El navegador de Dimensiones Informativas — explora el conocimiento de Claude, o dirige un
+  trabajo, haciendo clic en <b>direcciones</b> en vez de conversar. Un globo de un tema que sobrevuelas.</p>
+  <a class="btn lang-en" href="orb2.plugin" download>⬇ Download the plugin (orb2.plugin)</a>
+  <a class="btn lang-es" href="orb2.plugin" download>⬇ Descargar el plugin (orb2.plugin)</a>
+  <a class="btn ghost lang-en" href="orb2.zip" download>plain .zip</a>
+  <a class="btn ghost lang-es" href="orb2.zip" download>.zip normal</a>
+</div>
+
+<main>
+
+<section class="lang-en">
+  <h2>What the orb is</h2>
+  <p>Give the orb a topic and it becomes a place you navigate. Six directions, one meaning each:</p>
+  <div class="dirpad">
+    <span class="mid"></span><span>▲ up<br><i>broader</i></span><span class="mid"></span>
+    <span>◀ left<br><i>around</i></span><span>● dwell</span><span>right ▶<br><i>around</i></span>
+    <span class="mid"></span><span>▼ down<br><i>deeper</i></span><span class="mid"></span>
+  </div>
+  <p><b>Up</b> goes broader, <b>down</b> goes deeper, <b>left and right</b> move around the ring of neighboring
+  ideas, and <b>forward / backward</b> travel along consequence — what follows from here, what led to here.
+  Hand it a <i>task</i> instead of a topic ("write the launch email") and the same directions become moves on
+  the work itself.</p>
+  <p class="dim">Rhythm mode drags a timeline across years, decades, or centuries and reads a topic like sheet
+  music — recurring beats, tempo, motifs, rests, syncopation, overlapping cycles. There's an anchor-or-drift
+  reading, a triangulator, chained flights ("two right, one forward"), and a creative mode for eccentric
+  destinations.</p>
+</section>
+
+<section class="lang-es">
+  <h2>Qué es el orbe</h2>
+  <p>Dale un tema al orbe y se convierte en un lugar que navegas. Seis direcciones, un significado cada una:</p>
+  <div class="dirpad">
+    <span class="mid"></span><span>▲ arriba<br><i>más amplio</i></span><span class="mid"></span>
+    <span>◀ izquierda<br><i>alrededor</i></span><span>● habitar</span><span>derecha ▶<br><i>alrededor</i></span>
+    <span class="mid"></span><span>▼ abajo<br><i>más profundo</i></span><span class="mid"></span>
+  </div>
+  <p><b>Arriba</b> amplía, <b>abajo</b> profundiza, <b>izquierda y derecha</b> recorren el anillo de ideas
+  vecinas, y <b>adelante / atrás</b> viajan por la consecuencia — qué sigue de aquí, qué llevó hasta aquí.
+  Entrégale una <i>tarea</i> en vez de un tema ("escribe el correo de lanzamiento") y las mismas direcciones
+  se vuelven movimientos sobre el trabajo mismo.</p>
+  <p class="dim">El modo ritmo arrastra una línea de tiempo por años, décadas o siglos y lee un tema como una
+  partitura — pulsos recurrentes, tempo, motivos, silencios, síncopa, ciclos superpuestos. Hay una lectura de
+  ancla-o-deriva, un triangulador, vuelos encadenados ("dos a la derecha, uno adelante") y un modo creativo
+  para destinos excéntricos.</p>
+</section>
+
+<section class="lang-en">
+  <h2>Three skills in the box</h2>
+  <div class="skills">
+    <div class="card"><b>/orb</b>
+      <p>The live session. Opens in the chat; you click directions and the orb flies. Verb mode drives real
+      work-products move by move. Park it, resume it, change granularity mid-flight.</p></div>
+    <div class="card"><b>/orbprint</b>
+      <p>Prints an orb as ONE self-contained HTML file — a slowly rotating globe of the subject, browsed by
+      clicking points, a path line drawn between everywhere you've been. Keep it, reopen it, share it.</p></div>
+    <div class="card"><b>/orbengine</b>
+      <p>The author's bench. Builds <code>.orb.txt</code> terrain files that Orb Studio renders — bands,
+      positions, ring order, meridians, the anchor, honest edges. Placement is computed, never eyeballed.</p></div>
+  </div>
+</section>
+
+<section class="lang-es">
+  <h2>Tres habilidades en la caja</h2>
+  <div class="skills">
+    <div class="card"><b>/orb</b>
+      <p>La sesión en vivo. Se abre en el chat; haces clic en direcciones y el orbe vuela. El modo verbo
+      dirige trabajos reales movimiento a movimiento. Apárcalo, retómalo, cambia la granularidad en pleno vuelo.</p></div>
+    <div class="card"><b>/orbprint</b>
+      <p>Imprime un orbe como UN solo archivo HTML autocontenido — un globo del tema que rota lentamente,
+      navegado con clics, con una línea de ruta entre todos los lugares visitados. Guárdalo, reábrelo, compártelo.</p></div>
+    <div class="card"><b>/orbengine</b>
+      <p>El banco del autor. Construye archivos de terreno <code>.orb.txt</code> que Orb Studio renderiza —
+      bandas, posiciones, orden del anillo, meridianos, el ancla, bordes honestos. La colocación se calcula,
+      nunca se hace a ojo.</p></div>
+  </div>
+</section>
+
+<section class="lang-en">
+  <h2>Install the plugin in Claude</h2>
+  <p class="dim">The download is a standard Claude plugin — a folder with a <code>.claude-plugin/plugin.json</code>
+  manifest and a <code>skills/</code> directory. Two ways in:</p>
+  <h3>Cowork / Claude desktop app</h3>
+  <ol>
+    <li>Download <code>orb2.plugin</code> with the button above (or grab the <code>plugin-files\orb2</code> folder from this same directory).</li>
+    <li>In a Cowork chat, <b>attach or drag in the .plugin file</b> and say <i>"install this plugin."</i> Claude walks it in.</li>
+    <li>Alternatively, ask Claude: <i>"install the plugin from the folder C:\Users\&lt;you&gt;\Desktop\Orb Plugin\plugin-files\orb2"</i>.</li>
+    <li>Verify: ask <i>"what plugins do I have?"</i> — <b>orb2</b> should be listed. Then just type <code>/orb</code>.</li>
+  </ol>
+  <h3>Claude Code (terminal)</h3>
+  <ol>
+    <li>Unzip (or use the ready <code>plugin-files\orb2</code> folder).</li>
+    <li>Add the folder that CONTAINS the plugin as a marketplace, then install:
+      <p><code>claude plugin marketplace add "C:\Users\&lt;you&gt;\Desktop\Orb Plugin\plugin-files"</code><br>
+      <code>claude plugin install orb2</code></p></li>
+    <li>Or inside a session: <code>/plugin marketplace add &lt;that folder&gt;</code> → <code>/plugin install orb2</code>.</li>
+    <li>Restart the session; <code>/orb</code> appears in the skill list.</li>
+  </ol>
+  <p class="dim">Full step-by-step with troubleshooting lives in <a href="INSTALL_INSTRUCTIONS.md">INSTALL_INSTRUCTIONS.md</a>
+  beside this page.</p>
+</section>
+
+<section class="lang-es">
+  <h2>Instalar el plugin en Claude</h2>
+  <p class="dim">La descarga es un plugin estándar de Claude — una carpeta con el manifiesto
+  <code>.claude-plugin/plugin.json</code> y un directorio <code>skills/</code>. Dos caminos:</p>
+  <h3>Cowork / aplicación de escritorio de Claude</h3>
+  <ol>
+    <li>Descarga <code>orb2.plugin</code> con el botón de arriba (o toma la carpeta <code>plugin-files\orb2</code> de este mismo directorio).</li>
+    <li>En un chat de Cowork, <b>adjunta o arrastra el archivo .plugin</b> y di: <i>"instala este plugin."</i> Claude lo instala.</li>
+    <li>O pídele a Claude: <i>"instala el plugin de la carpeta C:\Users\&lt;tú&gt;\Desktop\Orb Plugin\plugin-files\orb2"</i>.</li>
+    <li>Verifica: pregunta <i>"¿qué plugins tengo?"</i> — <b>orb2</b> debe aparecer. Luego escribe <code>/orb</code>.</li>
+  </ol>
+  <h3>Claude Code (terminal)</h3>
+  <ol>
+    <li>Descomprime (o usa la carpeta lista <code>plugin-files\orb2</code>).</li>
+    <li>Agrega la carpeta que CONTIENE el plugin como marketplace, luego instala:
+      <p><code>claude plugin marketplace add "C:\Users\&lt;tú&gt;\Desktop\Orb Plugin\plugin-files"</code><br>
+      <code>claude plugin install orb2</code></p></li>
+    <li>O dentro de una sesión: <code>/plugin marketplace add &lt;esa carpeta&gt;</code> → <code>/plugin install orb2</code>.</li>
+    <li>Reinicia la sesión; <code>/orb</code> aparece en la lista de habilidades.</li>
+  </ol>
+  <p class="dim">La guía completa con solución de problemas está en <a href="INSTALL_INSTRUCTIONS.md">INSTALL_INSTRUCTIONS.md</a>
+  junto a esta página (en inglés).</p>
+</section>
+
+<section class="lang-en">
+  <h2>What's in this folder</h2>
+  <table class="files">
+    <tr><td><code>index.html</code></td><td class="dim">this page</td></tr>
+    <tr><td><code>orb2.plugin</code></td><td class="dim">the plugin, packaged for install (zip format)</td></tr>
+    <tr><td><code>orb2.zip</code></td><td class="dim">the same archive with a plain zip name</td></tr>
+    <tr><td><code>plugin-files\orb2\</code></td><td class="dim">the unpacked plugin — manifest, README, and the three skills</td></tr>
+    <tr><td><code>INSTALL_INSTRUCTIONS.md</code></td><td class="dim">installation guide, both Cowork and Claude Code</td></tr>
+  </table>
+</section>
+
+<section class="lang-es">
+  <h2>Qué hay en esta carpeta</h2>
+  <table class="files">
+    <tr><td><code>index.html</code></td><td class="dim">esta página</td></tr>
+    <tr><td><code>orb2.plugin</code></td><td class="dim">el plugin, empaquetado para instalar (formato zip)</td></tr>
+    <tr><td><code>orb2.zip</code></td><td class="dim">el mismo archivo con nombre zip normal</td></tr>
+    <tr><td><code>plugin-files\orb2\</code></td><td class="dim">el plugin descomprimido — manifiesto, README y las tres habilidades</td></tr>
+    <tr><td><code>INSTALL_INSTRUCTIONS.md</code></td><td class="dim">guía de instalación, Cowork y Claude Code</td></tr>
+  </table>
+</section>
+
+<footer>
+  <span class="lang-en">orb2 v1.2.1 · an Informational Dimensions instrument · by Nathan</span>
+  <span class="lang-es">orb2 v1.2.1 · un instrumento de Dimensiones Informativas · por Nathan</span>
+</footer>
+</main>
+
+<script>
+function setLang(l){
+  document.body.classList.toggle('es', l==='es');
+  document.documentElement.lang = l;
+  document.getElementById('btnEN').classList.toggle('on', l==='en');
+  document.getElementById('btnES').classList.toggle('on', l==='es');
+  document.title = (l==='es') ? '/orb — El Navegador de Dimensiones Informativas'
+                              : '/orb — The Informational Dimensions Navigator';
+}
+/* start in the browser's language if it's Spanish */
+if((navigator.language||'').toLowerCase().startsWith('es')) setLang('es');
+</script>
+</body>
+</html>
