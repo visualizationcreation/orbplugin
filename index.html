@@ -4,78 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>/orb — The Informational Dimensions Navigator</title>
-<style>
-  :root{
-    --bg:#0b0e14; --panel:#141926; --panel2:#1a2133; --ink:#e8ecf4; --muted:#8b95ab;
-    --glow:#6ea8ff; --glow2:#9d7bff; --line:#263049; --accent:#59d6a9;
-  }
-  *{box-sizing:border-box}
-  body{margin:0;font:16px/1.65 "Segoe UI",-apple-system,sans-serif;background:var(--bg);color:var(--ink)}
-  .langbar{position:fixed;top:14px;right:16px;z-index:10;display:flex;gap:6px}
-  .langbar button{cursor:pointer;font:600 13px "Segoe UI",sans-serif;padding:6px 14px;border-radius:999px;
-    border:1px solid var(--line);background:var(--panel);color:var(--muted)}
-  .langbar button.on{background:linear-gradient(135deg,var(--glow),var(--glow2));color:#0b0e14;border-color:transparent}
-  .hero{position:relative;text-align:center;padding:84px 24px 60px;overflow:hidden}
-  .orbball{width:190px;height:190px;margin:0 auto 28px;border-radius:50%;position:relative;
-    background:radial-gradient(circle at 34% 30%, #3a5f9e 0%, #16233f 55%, #0b0e14 100%);
-    box-shadow:0 0 60px 8px rgba(110,168,255,.25), inset 0 0 40px rgba(157,123,255,.25);
-    animation:spin 26s linear infinite}
-  .orbball::before{content:"";position:absolute;inset:14px;border-radius:50%;
-    border:1px solid rgba(110,168,255,.35);transform:rotateX(66deg)}
-  .orbball::after{content:"";position:absolute;inset:34px;border-radius:50%;
-    border:1px dashed rgba(157,123,255,.3)}
-  @keyframes spin{from{filter:hue-rotate(0)}to{filter:hue-rotate(28deg)}}
-  h1{font-size:44px;margin:0 0 6px;letter-spacing:.02em}
-  h1 .slash{color:var(--glow)}
-  .tag{color:var(--muted);max-width:640px;margin:0 auto 30px;font-size:18px}
-  .btn{display:inline-block;background:linear-gradient(135deg,var(--glow),var(--glow2));color:#0b0e14;
-    font-weight:700;padding:14px 30px;border-radius:12px;text-decoration:none;font-size:17px;
-    box-shadow:0 6px 24px rgba(110,168,255,.35)}
-  .btn:hover{filter:brightness(1.1)}
-  .btn.ghost{background:none;color:var(--glow);border:1px solid var(--glow);box-shadow:none;margin-left:12px}
-  main{max-width:880px;margin:0 auto;padding:20px 24px 80px}
-  section{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:26px 30px;margin:22px 0}
-  h2{margin:0 0 12px;font-size:22px;color:var(--glow)}
-  h3{margin:18px 0 6px;font-size:16px;color:var(--accent)}
-  p{margin:8px 0;color:var(--ink)}
-  .dim{color:var(--muted)}
-  .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:14px}
-  .card{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
-  .card b{color:var(--ink);font-size:17px}
-  .card p{font-size:14px;color:var(--muted)}
-  code{background:#0e1320;border:1px solid var(--line);border-radius:6px;padding:2px 7px;font-size:14px;color:#a8d8ff}
-  ol li{margin:10px 0}
-  .files td{padding:6px 12px 6px 0;font-size:15px}
-  .files .dim{font-size:13px}
-  a{color:var(--glow)}
-  footer{text-align:center;color:var(--muted);font-size:13px;padding:26px}
-  .dirpad{display:grid;grid-template-columns:repeat(3,64px);gap:6px;justify-content:center;margin:16px auto}
-  .dirpad span{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px 0;
-    text-align:center;font-size:13px;color:var(--muted)}
-  .dirpad .mid{background:none;border:none}
-  .lang-es{display:none}
-  body.es .lang-es{display:revert}
-  body.es .lang-en{display:none}
-</style>
-<style id="orb-shared-theme">
-/* ORB · Informational Dimensions · Quinault green / white / dark tools */
-:root{color-scheme:light;--bg:#fff;--panel:#fff;--panel2:#f4f6f3;--ink:#18201b;--muted:#546258;--glow:#365c42;--glow2:#365c42;--line:#ccd5ca;--accent:#365c42}
-.hero{--ink:#e8eee7;--muted:#b5c6b6;--glow:#c7dca1;--glow2:#c7dca1;background:#101914;color:#e8eee7;border-bottom:1px solid #455749}
-.orbball{background:radial-gradient(circle at 34% 30%,#6b865a 0%,#294633 55%,#101914 100%);box-shadow:inset 0 0 35px #0b160c;animation:none}
-.orbball:before{border-color:#a6c18a}.orbball:after{border-color:#78976d}
-.btn{background:#c7dca1;color:#101914;border-radius:5px;box-shadow:none}.btn.ghost{color:#c7dca1;border-color:#8caa7d}.btn:hover{filter:none;background:#d9e8bf}.btn.ghost:hover{background:#243829}
-.langbar button{border-radius:4px;background:#101914;color:#e8eee7;border-color:#546b56}.langbar button.on{background:#c7dca1;color:#101914}
-section{border-radius:0;border-width:0 0 1px;padding:26px 0}.card{border-radius:4px;background:#f4f6f3;box-shadow:none}
-code{background:#101914;color:#d4e4bd;border-color:#455749;border-radius:3px}
-.dirpad{background:#101914;padding:14px;width:max-content;border-radius:5px}.dirpad span{background:#1b2b20;color:#c7dca1;border-color:#455749;border-radius:3px}
-footer{border-top:1px solid #ccd5ca;background:#f4f6f3}
-code{overflow-wrap:anywhere}.files{max-width:100%}.files td{overflow-wrap:anywhere}
-button:focus-visible,a:focus-visible{outline:3px solid #5f8755;outline-offset:4px}
-@media(max-width:600px){.btn{max-width:100%;font-size:15px;padding:12px 18px}.btn.ghost{margin:12px 0 0}.hero{padding:78px 20px 40px}.langbar{position:absolute}.skills{grid-template-columns:1fr}}
 
-</style>
-</head>
-<body>
+
+<link rel="stylesheet" href="site-shell.css?v=unified-1"><link rel="stylesheet" href="style.css?v=unified-1"></head>
+<body><a class="skip" href="#content">Skip to content</a><header class="site-header"><div class="header-inner"><a class="brand" href="https://visualizationcreation.github.io/orb-archive/" aria-label="ORB archive home">ORB</a><nav class="nav" aria-label="Main navigation"><a href="https://visualizationcreation.github.io/orb-archive/">Archive</a><a href="https://visualizationcreation.github.io/orb-archive/about.html">About ORB</a><a href="https://visualizationcreation.github.io/orb-archive/#share">Share an ORB</a><a href="https://visualizationcreation.github.io/orbbasic/">Prompt</a><a href="https://visualizationcreation.github.io/orbplugin/" aria-current="page">Skills</a></nav><span class="attribution">By Informational Dimensions</span></div></header><main class="workspace" id="content"><div class="workspace-heading"><h1><span class="lang-en">ORB Skills</span><span class="lang-es">Habilidades ORB</span></h1><p><span class="lang-en">Bring directional exploration into Claude.</span><span class="lang-es">Explora por direcciones en Claude.</span></p></div>
 
 <div class="langbar">
   <button id="btnEN" class="on" onclick="setLang('en')">English</button>
@@ -83,8 +15,8 @@ button:focus-visible,a:focus-visible{outline:3px solid #5f8755;outline-offset:4p
 </div>
 
 <div class="hero">
-  <div class="orbball"></div>
-  <h1><span class="slash">/</span>orb</h1>
+  
+  
   <p class="tag lang-en">The Informational Dimensions navigator — browse Claude's knowledge, or drive a piece of work,
   by clicking <b>directions</b> instead of conversing. A globe of a subject you fly around.</p>
   <p class="tag lang-es">El navegador de Dimensiones Informativas — explora el conocimiento de Claude, o dirige un
@@ -95,7 +27,7 @@ button:focus-visible,a:focus-visible{outline:3px solid #5f8755;outline-offset:4p
   <a class="btn ghost lang-es" href="https://github.com/visualizationcreation/orbplugin/raw/main/orb2.zip" download>.zip normal</a>
 </div>
 
-<main>
+
 
 <section class="lang-en">
   <h2>What the orb is</h2>
@@ -234,10 +166,7 @@ button:focus-visible,a:focus-visible{outline:3px solid #5f8755;outline-offset:4p
   </table>
 </section>
 
-<footer>
-  <span class="lang-en">orb2 v1.2.1 · By Informational Dimensions</span>
-  <span class="lang-es">orb2 v1.2.1 · Por Informational Dimensions</span>
-</footer>
+<footer class="footer"><span class="credit">By Informational Dimensions</span><a href="https://visualizationcreation.github.io/orb-archive/">ORB Archive</a><a href="https://www.youtube.com/@OrbJourneys">YouTube ↗</a><a href="https://www.facebook.com/profile.php?id=61593931813772">Facebook ↗</a></footer>
 </main>
 
 <script>
