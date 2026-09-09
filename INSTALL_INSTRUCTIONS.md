@@ -1,57 +1,13 @@
-# Installing the orb2 plugin in Claude
+# ORB plugin 1.3.0
 
-The plugin is a standard Claude plugin: a folder holding `.claude-plugin/plugin.json`
-(the manifest) and `skills/` (orb, orbprint, orbengine). Both `orb2.plugin` and
-`orb2.zip` in this folder are the same zip archive of it; `plugin-files\orb2\` is
-the unpacked copy, ready to use as-is.
+By Informational Dimensions.
 
----
+Use orb for live exploration, orbshare for ORB File 1 text sharing, and orbprint for optional custom HTML. The orbengine skill is retained only for explicitly requested legacy maintenance. New /orbtxt requests route to orbshare. Existing legacy terrain is not automatically compatible with the new file format.
 
-## Option A — Cowork / the Claude desktop app  (easiest)
+No installation is needed for the simplest path: copy the public ORB prompt into your AI chat, explore a topic, then copy the ORB Share authoring brief into that same chat. Open the resulting .orb.txt at https://visualizationcreation.github.io/orb-share/tool.html or paste its JSON and save it. Prepare submission, sign in to GitHub, attach the saved file and send it for owner review. Previewing does not publish.
 
-1. Open a Cowork chat.
-2. Drag `orb2.plugin` into the chat (or attach it) and say: **"install this plugin."**
-3. Or skip the file entirely and say:
-   "Install the plugin from the folder `C:\Users\<you>\Desktop\Orb Plugin\plugin-files\orb2`."
-4. Verify: ask **"what plugins do I have?"** — `orb2` should appear.
-5. Use it: type `/orb` (live session), `/orbprint` (standalone HTML orb),
-   or `/orbengine` (author .orb.txt terrain).
+See the bundled orbshare references for the full supported format. Plugin imports depend on your host. Claude Code can load the extracted folder with `claude --plugin-dir /path/to/orb2`; see https://code.claude.com/docs/en/plugins. Keep older installed copies separate until you verify which version is active. No automatic installation or account permissions are granted by this archive.
 
-## Option B — Claude Code (terminal)
+## Archive contents
 
-Plugins install from a *marketplace*, which can simply be a local folder that
-contains plugin folders. `plugin-files\` here is exactly that.
-
-From the shell:
-
-    claude plugin marketplace add "C:\Users\<you>\Desktop\Orb Plugin\plugin-files"
-    claude plugin install orb2
-
-Or from inside a running session:
-
-    /plugin marketplace add C:\Users\<you>\Desktop\Orb Plugin\plugin-files
-    /plugin install orb2
-
-Then restart the session. `/orb` shows up in the available skills.
-
----
-
-## Troubleshooting
-
-- **"Marketplace add" complains about the path** — point it at the folder that
-  CONTAINS `orb2`, not at `orb2` itself. If it wants a manifest, create
-  `plugin-files\.claude-plugin\marketplace.json` containing:
-
-      { "name": "nathan-local", "plugins": [ { "name": "orb2", "source": "./orb2" } ] }
-
-- **`/orb` doesn't trigger** — plugins load at session start; open a fresh chat.
-- **Skill fires but behaves oddly** — make sure the whole folder copied, especially
-  `skills\orbengine\references\` (placement is computed by a script that must travel
-  with the skill).
-- **Sharing with someone else** — send them `orb2.plugin` plus this file. Nothing
-  else is needed; the plugin is fully self-contained.
-
----
-
-orb2 v1.2.1 — the Informational Dimensions orb navigator. Up is broader, down is
-deeper, left and right go around, forward and backward run along consequence.
+The extracted root contains .claude-plugin/plugin.json and skills/orb, skills/orbshare, skills/orbprint and skills/orbengine. Preserve references and scripts with each skill. The engine is legacy only. The manifest version must be 1.3.0. Hosts may namespace commands (for example /orb2:orbshare); use the skill name your host exposes. This site does not provide a pre-existing local plugin-files folder or install anything automatically.

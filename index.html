@@ -7,7 +7,7 @@
 
 
 <link rel="stylesheet" href="site-shell.css?v=unified-1"><link rel="stylesheet" href="style.css?v=unified-1"></head>
-<body><a class="skip" href="#content">Skip to content</a><header class="site-header"><div class="header-inner"><a class="brand" href="https://visualizationcreation.github.io/orb-archive/" aria-label="ORB archive home">ORB</a><nav class="nav" aria-label="Main navigation"><a href="https://visualizationcreation.github.io/orb-archive/">Archive</a><a href="https://visualizationcreation.github.io/orb-archive/about.html">About ORB</a><a href="https://visualizationcreation.github.io/orb-archive/#share">Share an ORB</a><a href="https://visualizationcreation.github.io/orbbasic/">Prompt</a><a href="https://visualizationcreation.github.io/orbplugin/" aria-current="page">Skills</a></nav><span class="attribution">By Informational Dimensions</span></div></header><main class="workspace" id="content"><div class="workspace-heading"><h1><span class="lang-en">ORB Skills</span><span class="lang-es">Habilidades ORB</span></h1><p><span class="lang-en">Bring directional exploration into Claude.</span><span class="lang-es">Explora por direcciones en Claude.</span></p></div>
+<body><a class="skip" href="#content">Skip to content</a><header class="site-header"><div class="header-inner"><a class="brand" href="https://visualizationcreation.github.io/orb-archive/" aria-label="ORB archive home">ORB</a><nav class="nav" aria-label="Main navigation"><a href="https://visualizationcreation.github.io/orb-archive/">Archive</a><a href="https://visualizationcreation.github.io/orb-archive/about.html">About ORB</a><a href="https://visualizationcreation.github.io/orb-share/tool.html">ORB Share</a><a href="https://visualizationcreation.github.io/orbbasic/">Prompt</a><a href="https://visualizationcreation.github.io/orbplugin/" aria-current="page">Skills</a></nav><span class="attribution">By Informational Dimensions</span></div></header><main class="workspace" id="content"><div class="workspace-heading"><h1><span class="lang-en">ORB Skills</span><span class="lang-es">Habilidades ORB</span></h1><p><span class="lang-en">Bring directional exploration into Claude.</span><span class="lang-es">Explora por direcciones en Claude.</span></p></div>
 
 <div class="langbar">
   <button id="btnEN" class="on" onclick="setLang('en')">English</button>
@@ -29,6 +29,7 @@
 
 
 
+<section class="lang-en"><h2>Create your first .txt ORB — no plugin needed</h2><ol><li><strong>Explore a topic.</strong> Copy the <a href="https://visualizationcreation.github.io/orbbasic/">ORB prompt</a> into your AI chat, then type <code>/orb your topic</code>. Follow questions and check sources.</li><li><strong>Create the file.</strong> In <a href="https://visualizationcreation.github.io/orb-share/tool.html#author">ORB Share, copy the authoring brief</a> into that same chat. Ask for your exploration as an ORB File 1 named <code>your-topic.orb.txt</code>. No HTML or plugin installation is needed.</li><li><strong>Preview and save.</strong> Open the AI’s file in ORB Share. If it gives you text instead, copy the JSON inside its code block, choose <strong>Paste text → Check &amp; open</strong>, then <strong>Save ORB file</strong>. If there are errors, copy them back to your AI and ask it to fix the file.</li><li><strong>Submit for review.</strong> Choose <strong>Prepare submission</strong>, check your title and public creator credit, then continue to GitHub. Sign in or create a GitHub account, attach the saved <code>.orb.txt</code> to the issue description, and submit. Keep the issue link as your receipt. Previewing does not upload the file or publish it.</li></ol><p>Plugin 1.3.0 includes the new <code>orbshare</code> exporter. The old <code>orbengine</code> is retained only for explicit legacy maintenance; its terrain files need conversion before ORB Share can open them.</p></section><section class="lang-es"><h2>Crea tu primer ORB .txt — sin instalar un plugin</h2><ol><li>Copia el <a href="https://visualizationcreation.github.io/orbbasic/">prompt ORB</a> en tu chat de IA y explora un tema.</li><li>Copia las <a href="https://visualizationcreation.github.io/orb-share/tool.html#author">instrucciones de creación de ORB Share</a> en ese mismo chat. Pide un archivo <code>tema.orb.txt</code> en formato ORB File 1.</li><li>Abre el archivo en ORB Share, o pega el JSON con Paste text → Check &amp; open. Revisa el contenido y pulsa Save ORB file.</li><li>Pulsa Prepare submission, revisa tu crédito público y los permisos, inicia sesión en GitHub y adjunta el archivo guardado a la descripción antes de enviar. La vista previa no publica ni sube el archivo.</li></ol><p>El prompt descargado contiene instrucciones; el archivo ORB terminado contiene tu exploración. El motor antiguo se conserva solo para mantenimiento de archivos heredados.</p></section>
 <section class="lang-en">
   <h2>What the orb is</h2>
   <p>Give the orb a topic and it becomes a place you navigate. Six directions, one meaning each:</p>
@@ -66,7 +67,7 @@
 </section>
 
 <section class="lang-en">
-  <h2>Three skills in the box</h2>
+  <h2>Three current skills · plugin 1.3.0</h2>
   <div class="skills">
     <div class="card"><b>/orb</b>
       <p>The live session. Opens in the chat; you click directions and the orb flies. Verb mode drives real
@@ -74,14 +75,12 @@
     <div class="card"><b>/orbprint</b>
       <p>Prints an orb as ONE self-contained HTML file — a slowly rotating globe of the subject, browsed by
       clicking points, a path line drawn between everywhere you've been. Keep it, reopen it, share it.</p></div>
-    <div class="card"><b>/orbengine</b>
-      <p>The author's bench. Builds <code>.orb.txt</code> terrain files that Orb Studio renders — bands,
-      positions, ring order, meridians, the anchor, honest edges. Placement is computed, never eyeballed.</p></div>
+    <div class="card"><b>/orbshare</b><p>Create an ORB File 1 <code>.orb.txt</code> from your readings, sources and connections. Open it in the shared ORB Share reader. No HTML authoring required.</p></div>
   </div>
 </section>
 
 <section class="lang-es">
-  <h2>Tres habilidades en la caja</h2>
+  <h2>Tres habilidades actuales · plugin 1.3.0</h2>
   <div class="skills">
     <div class="card"><b>/orb</b>
       <p>La sesión en vivo. Se abre en el chat; haces clic en direcciones y el orbe vuela. El modo verbo
@@ -89,83 +88,11 @@
     <div class="card"><b>/orbprint</b>
       <p>Imprime un orbe como UN solo archivo HTML autocontenido — un globo del tema que rota lentamente,
       navegado con clics, con una línea de ruta entre todos los lugares visitados. Guárdalo, reábrelo, compártelo.</p></div>
-    <div class="card"><b>/orbengine</b>
-      <p>El banco del autor. Construye archivos de terreno <code>.orb.txt</code> que Orb Studio renderiza —
-      bandas, posiciones, orden del anillo, meridianos, el ancla, bordes honestos. La colocación se calcula,
-      nunca se hace a ojo.</p></div>
+    <div class="card"><b>/orbshare</b><p>Crea un <code>.orb.txt</code> de ORB File 1 con lecturas, fuentes y conexiones. Ábrelo en ORB Share; no necesitas crear HTML.</p></div>
   </div>
 </section>
 
-<section class="lang-en">
-  <h2>Install the plugin in Claude</h2>
-  <p class="dim">The download is a standard Claude plugin — a folder with a <code>.claude-plugin/plugin.json</code>
-  manifest and a <code>skills/</code> directory. Two ways in:</p>
-  <h3>Cowork / Claude desktop app</h3>
-  <ol>
-    <li>Download <code>orb2.plugin</code> with the button above (or grab the <code>plugin-files\orb2</code> folder from this same directory).</li>
-    <li>In a Cowork chat, <b>attach or drag in the .plugin file</b> and say <i>"install this plugin."</i> Claude walks it in.</li>
-    <li>Alternatively, ask Claude: <i>"install the plugin from the folder C:\Users\&lt;you&gt;\Desktop\Orb Plugin\plugin-files\orb2"</i>.</li>
-    <li>Verify: ask <i>"what plugins do I have?"</i> — <b>orb2</b> should be listed. Then just type <code>/orb</code>.</li>
-  </ol>
-  <h3>Claude Code (terminal)</h3>
-  <ol>
-    <li>Unzip (or use the ready <code>plugin-files\orb2</code> folder).</li>
-    <li>Add the folder that CONTAINS the plugin as a marketplace, then install:
-      <p><code>claude plugin marketplace add "C:\Users\&lt;you&gt;\Desktop\Orb Plugin\plugin-files"</code><br>
-      <code>claude plugin install orb2</code></p></li>
-    <li>Or inside a session: <code>/plugin marketplace add &lt;that folder&gt;</code> → <code>/plugin install orb2</code>.</li>
-    <li>Restart the session; <code>/orb</code> appears in the skill list.</li>
-  </ol>
-  <p class="dim">Full step-by-step with troubleshooting lives in <a href="INSTALL_INSTRUCTIONS.md">INSTALL_INSTRUCTIONS.md</a>
-  beside this page.</p>
-</section>
-
-<section class="lang-es">
-  <h2>Instalar el plugin en Claude</h2>
-  <p class="dim">La descarga es un plugin estándar de Claude — una carpeta con el manifiesto
-  <code>.claude-plugin/plugin.json</code> y un directorio <code>skills/</code>. Dos caminos:</p>
-  <h3>Cowork / aplicación de escritorio de Claude</h3>
-  <ol>
-    <li>Descarga <code>orb2.plugin</code> con el botón de arriba (o toma la carpeta <code>plugin-files\orb2</code> de este mismo directorio).</li>
-    <li>En un chat de Cowork, <b>adjunta o arrastra el archivo .plugin</b> y di: <i>"instala este plugin."</i> Claude lo instala.</li>
-    <li>O pídele a Claude: <i>"instala el plugin de la carpeta C:\Users\&lt;tú&gt;\Desktop\Orb Plugin\plugin-files\orb2"</i>.</li>
-    <li>Verifica: pregunta <i>"¿qué plugins tengo?"</i> — <b>orb2</b> debe aparecer. Luego escribe <code>/orb</code>.</li>
-  </ol>
-  <h3>Claude Code (terminal)</h3>
-  <ol>
-    <li>Descomprime (o usa la carpeta lista <code>plugin-files\orb2</code>).</li>
-    <li>Agrega la carpeta que CONTIENE el plugin como marketplace, luego instala:
-      <p><code>claude plugin marketplace add "C:\Users\&lt;tú&gt;\Desktop\Orb Plugin\plugin-files"</code><br>
-      <code>claude plugin install orb2</code></p></li>
-    <li>O dentro de una sesión: <code>/plugin marketplace add &lt;esa carpeta&gt;</code> → <code>/plugin install orb2</code>.</li>
-    <li>Reinicia la sesión; <code>/orb</code> aparece en la lista de habilidades.</li>
-  </ol>
-  <p class="dim">La guía completa con solución de problemas está en <a href="INSTALL_INSTRUCTIONS.md">INSTALL_INSTRUCTIONS.md</a>
-  junto a esta página (en inglés).</p>
-</section>
-
-<section class="lang-en">
-  <h2>What's in this folder</h2>
-  <table class="files">
-    <tr><td><code>index.html</code></td><td class="dim">this page</td></tr>
-    <tr><td><code>orb2.plugin</code></td><td class="dim">the plugin, packaged for install (zip format)</td></tr>
-    <tr><td><code>orb2.zip</code></td><td class="dim">the same archive with a plain zip name</td></tr>
-    <tr><td><code>plugin-files\orb2\</code></td><td class="dim">the unpacked plugin — manifest, README, and the three skills</td></tr>
-    <tr><td><code>INSTALL_INSTRUCTIONS.md</code></td><td class="dim">installation guide, both Cowork and Claude Code</td></tr>
-  </table>
-</section>
-
-<section class="lang-es">
-  <h2>Qué hay en esta carpeta</h2>
-  <table class="files">
-    <tr><td><code>index.html</code></td><td class="dim">esta página</td></tr>
-    <tr><td><code>orb2.plugin</code></td><td class="dim">el plugin, empaquetado para instalar (formato zip)</td></tr>
-    <tr><td><code>orb2.zip</code></td><td class="dim">el mismo archivo con nombre zip normal</td></tr>
-    <tr><td><code>plugin-files\orb2\</code></td><td class="dim">el plugin descomprimido — manifiesto, README y las tres habilidades</td></tr>
-    <tr><td><code>INSTALL_INSTRUCTIONS.md</code></td><td class="dim">guía de instalación, Cowork y Claude Code</td></tr>
-  </table>
-</section>
-
+<section class="lang-en"><h2>Optional plugin installation</h2><p>The downloads above contain plugin 1.3.0, including ORB Share. The .plugin and .zip downloads contain the same files. No installation is required for the portable prompt and ORB Share workflow.</p><p>For Claude Code, extract the archive to a folder and load it with <code>claude --plugin-dir /path/to/orb2</code>. <a href="https://code.claude.com/docs/en/plugins">Official plugin instructions ↗</a>. Other hosts may provide a plugin import interface; use the options actually available in your app.</p><p><a href="INSTALL_INSTRUCTIONS.md">Download and compatibility notes ↗</a></p></section><section class="lang-es"><h2>Instalación opcional</h2><p>Las descargas incluyen ORB Share en el plugin 1.3.0. Los archivos .plugin y .zip contienen lo mismo. No necesitas instalar nada para usar el prompt y ORB Share.</p><p>En Claude Code, extrae el archivo y usa <code>claude --plugin-dir /ruta/a/orb2</code>. <a href="https://code.claude.com/docs/es/plugins">Instrucciones oficiales ↗</a>. En otras aplicaciones, usa las opciones de importación disponibles.</p></section>
 <footer class="footer"><span class="credit">By Informational Dimensions</span><a href="https://visualizationcreation.github.io/orb-archive/">ORB Archive</a><a href="https://www.youtube.com/@OrbJourneys">YouTube ↗</a><a href="https://www.facebook.com/profile.php?id=61593931813772">Facebook ↗</a></footer>
 </main>
 
